@@ -1,0 +1,28 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Racao 1",
+      "preco": 30,
+      "imagem": "pedigree.jpg"
+    },
+    {
+      "id": 2,
+      "nome": "Racao 2",
+      "preco": 40,
+      "imagem": "pedigree.jpg"
+    },
+    {
+      "id": 3,
+      "nome": "Racao 3",
+      "preco": 60,
+      "imagem": "pedigree.jpg"
+    },
+    {
+      "nome": "Racao 4",
+      "preco": 100,
+      "imagem": "pedigree.jpg",
+      "id": 4
+    }
+  ]
+}
