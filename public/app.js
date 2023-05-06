@@ -10,7 +10,7 @@ function buscarProdutos() {
         //console.log(this.responseText);
         const produtos = JSON.parse(this.responseText);
         
-        carregaProduto(produtos[0]);
+        mostrarProdutos(produtos);
     }
     xhttp.open("GET", "http://localhost:3000/produtos");
     xhttp.send();
@@ -18,8 +18,10 @@ function buscarProdutos() {
 }
 
 
-function carregaProduto(produto) {
-    document.querySelector("#produtos").innerHTML = `
+function mostrarProdutos(produtos) {
+    let htmlProdutos = '';
+    for(let produto of produtos) {
+        htmlProdutos += `
                 <div class="w3-col l4 m6 s12 w3-container w3-padding-16">
                     <div class="w3-card">
                         <div class="w3-container w3-center">
@@ -29,5 +31,8 @@ function carregaProduto(produto) {
                         </div>
                     </div>
                 </div>
-    `;
+        `;
+    }
+    
+    document.querySelector("#produtos").innerHTML = htmlProdutos;
 }
