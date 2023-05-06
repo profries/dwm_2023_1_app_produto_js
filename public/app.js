@@ -7,8 +7,10 @@ window.onload = () => {
 function buscarProdutos() {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
-        console.log(this.responseText);
-        document.querySelector("#produtos").innerHTML = this.responseText;
+        //console.log(this.responseText);
+        const produtos = JSON.parse(this.responseText);
+        
+        carregaProduto(produtos[0]);
     }
     xhttp.open("GET", "http://localhost:3000/produtos");
     xhttp.send();
@@ -16,13 +18,7 @@ function buscarProdutos() {
 }
 
 
-function carregaProduto() {
-    let produto = {
-        id: 1,
-        nome: "Racao 1",
-        preco: 100.00,
-        imagem: "pedigree.jpg"
-    }
+function carregaProduto(produto) {
     document.querySelector("#produtos").innerHTML = `
                 <div class="w3-col l4 m6 s12 w3-container w3-padding-16">
                     <div class="w3-card">
