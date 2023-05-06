@@ -1,12 +1,22 @@
 //window.onload = function () {
 window.onload = () => {
-    carregaProduto();
-    setInterval(carregaProduto, 3000);
+    buscarProdutos();
+    setInterval(buscarProdutos, 3000);
 };
+
+function buscarProdutos() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+        console.log(this.responseText);
+        document.querySelector("#produtos").innerHTML = this.responseText;
+    }
+    xhttp.open("GET", "http://localhost:3000/produtos");
+    xhttp.send();
+
+}
 
 
 function carregaProduto() {
-
     let produto = {
         id: 1,
         nome: "Racao 1",
